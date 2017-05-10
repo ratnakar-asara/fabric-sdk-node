@@ -218,6 +218,12 @@ test('\n\n***** SDK Built config update  create flow  *****\n\n', function(t) {
 					policies : {
 
 					}
+				},{
+					id : 'Org3MSP',
+					//msp : { mspid : 'Org2MSP'},
+					policies : {
+
+					}
 				}],
 				policies : {
 					Admins  : {threshold : 'MAJORITY'},
@@ -236,6 +242,8 @@ test('\n\n***** SDK Built config update  create flow  *****\n\n', function(t) {
 	msps.push(client.newMSP( e2eUtils.loadMSPConfig('Org1MSP', '../../fixtures/channel/crypto-config/peerOrganizations/org1.example.com/msp/')));
 
 	msps.push(client.newMSP( e2eUtils.loadMSPConfig('Org2MSP', '../../fixtures/channel/crypto-config/peerOrganizations/org2.example.com/msp/')));
+
+	msps.push(client.newMSP( e2eUtils.loadMSPConfig('Org3MSP', '../../fixtures/channel/crypto-config/peerOrganizations/org3.example.com/msp/')));
 
 	// Acting as a client in org1 when creating the channel
 	var org = ORGS.org1.name;

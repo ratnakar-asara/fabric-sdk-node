@@ -264,12 +264,13 @@ function instantiateChaincode(userOrg, chaincode_path, version, upgrade, t){
 				identities: [
 					{ role: { name: 'member', mspId: ORGS['org1'].mspid }},
 					{ role: { name: 'member', mspId: ORGS['org2'].mspid }},
+					{ role: { name: 'member', mspId: ORGS['org3'].mspid }},
 					{ role: { name: 'admin', mspId: ORGS['org1'].mspid }}
 				],
 				policy: {
 					'1-of': [
-						{ 'signed-by': 2},
-						{ '2-of': [{ 'signed-by': 0}, { 'signed-by': 1 }]}
+						{ 'signed-by': 3},
+						{ '3-of': [{ 'signed-by': 0}, { 'signed-by': 1 }, { 'signed-by': 2 }]}
 					]
 				}
 			}

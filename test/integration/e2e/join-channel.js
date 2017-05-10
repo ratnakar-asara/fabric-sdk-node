@@ -74,9 +74,17 @@ test('\n\n***** End-to-end flow: join channel *****\n\n', function(t) {
 	})
 	.then(() => {
 		t.pass(util.format('Successfully joined peers in organization "%s" to the channel', ORGS['org2'].name));
-		t.end();
+		//t.end();
+		return joinChannel('org3', t);
 	}, (err) => {
 		t.fail(util.format('Failed to join peers in organization "%s" to the channel. %s', ORGS['org2'].name), err.stack ? err.stack : err);
+		t.end();
+	})
+	.then(() => {
+		t.pass(util.format('Successfully joined peers in organization "%s" to the channel', ORGS['org3'].name));
+		t.end();
+	}, (err) => {
+		t.fail(util.format('Failed to join peers in organization "%s" to the channel. %s', ORGS['org3'].name), err.stack ? err.stack : err);
 		t.end();
 	})
 	.catch(function(err) {
